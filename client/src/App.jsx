@@ -1,13 +1,24 @@
-import { useState } from 'react'
-import './App.css'
-
+import React from 'react'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from './components/Home';
+import Signup from './components/Signup';
+import Login from './components/Login';
+import ForgotPassword from './components/ForgotPassword'
+import { ResetPassword } from './components/ResetPassword';
+import Dashboard from './components/Dashboard'
 function App() {
   
-
   return (
-    <>
-      <h1>Hello World</h1>
-    </>
+      <BrowserRouter>
+          <Routes>
+              <Route path='/' element={<Home />}></Route>
+              <Route path='/signup' element={<Signup />}></Route>
+              <Route path='/login' element={<Login />}></Route>
+              <Route path='/forgotPassword' element={<ForgotPassword />}></Route>
+              <Route path='/resetPassword/:token' element={<ResetPassword />}></Route>
+              <Route path='/dashboard' element={<Dashboard />}></Route>
+          </Routes>
+      </BrowserRouter>
   )
 }
 
